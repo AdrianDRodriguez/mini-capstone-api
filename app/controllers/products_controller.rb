@@ -5,18 +5,18 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @product = Product.all
     render template: "products/index"
   end
 
   def create
-    @products = Product.new(
-      name: "Smart Fitness Watch",
-      price: 60,
-      description: "A waterproof fitness tracker with heart rate monitoring, GPS, and 10-day battery life. Great for health-conscious users.",
-      image_url: "https://mms.businesswire.com/media/20160105005568/en/502608/5/Fitbit_Blaze_Lineup.jpg"
-      )
-    products.save
+    @product = Product.new(
+    name: params[:name],
+    price: params[:price],
+    description: params[:description],
+    image_url: params[:image_url],
+    )
+    @product.save
     render :show
   end
 end
