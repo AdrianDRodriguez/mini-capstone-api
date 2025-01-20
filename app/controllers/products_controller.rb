@@ -19,4 +19,14 @@ class ProductsController < ApplicationController
     @product.save
     render :show
   end
+
+  def update
+    product = Product.find_by(id: 8)
+    name = "Liquor lamp",
+    price = 5,
+    description = "A lamp you can put in empty liquor bottles and mak...",
+    image_url = "https://m.media-amazon.com/images/I/710rbm13m6L._A...",
+    product.save
+    render json: { message: "jjjj" }
+  end
 end
