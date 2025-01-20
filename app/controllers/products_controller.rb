@@ -21,12 +21,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find_by(id: 8)
-    name = "Liquor lamp",
-    price = 5,
-    description = "A lamp you can put in empty liquor bottles and mak...",
-    image_url = "https://m.media-amazon.com/images/I/710rbm13m6L._A...",
-    product.save
-    render json: { message: "jjjj" }
+    @product = Product.find_by(id: params[:id])
+    @product.name = params[:name]
+    @product.price = params[:price]
+    @product.description = params[:description]
+    @product.image_url = params[:image_url]
+    @product.save
+    render :show
   end
 end
