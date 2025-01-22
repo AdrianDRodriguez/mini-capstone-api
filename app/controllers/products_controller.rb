@@ -16,8 +16,11 @@ class ProductsController < ApplicationController
     description: params[:description],
     image_url: params[:image_url],
     )
-    @product.save
-    render :show
+    if @product.save
+      render :show
+    else
+      render json: { message: "you screwed up" }
+    end
   end
 
   def update
